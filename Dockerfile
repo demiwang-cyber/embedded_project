@@ -9,8 +9,9 @@ COPY . /app
 # 设置工作目录
 WORKDIR /app
 
-# 暴露端口
-EXPOSE 8080
+# 设置环境变量 - FrankenPHP 通过 SERVER_NAME 配置监听
+ENV SERVER_NAME=":8080"
+ENV FRANKENPHP_CONFIG="worker ./index.php"
 
-# 启动命令
-CMD ["frankenphp", "run", "--listen", ":8080"]
+# 启动 FrankenPHP
+CMD ["frankenphp", "run"]
