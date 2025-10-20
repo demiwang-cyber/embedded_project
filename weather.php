@@ -2,10 +2,10 @@
 /****************************************************
  * DATABASE SETUP (Switch table here)
  ****************************************************/
-$host  = 'localhost';
-$db    = 'sensordatabase';
-$user  = 'your_mysql_user';       // ← Your MySQL username
-$pass  = 'your_mysql_password';   // ← Your MySQL password
+$host  = getenv('MYSQL_HOST') ?: 'localhost';
+$db    = getenv('MYSQL_DATABASE') ?: 'sensordatabase';
+$user  = getenv('MYSQL_USER') ?: 'your_mysql_user';
+$pass  = getenv('MYSQL_PASSWORD') ?: 'your_mysql_password';
 $table = 'weather';               // ← Target table: 'weather' or 'weather_fake'
 $dsn   = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 
